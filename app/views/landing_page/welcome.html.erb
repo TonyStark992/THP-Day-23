@@ -1,0 +1,22 @@
+<h1>Bienvenue à The Gossip Project !</h1><br/>
+
+<% if params[:user] != nil %>
+<p><strong>Ravi de vous revoir ici, <%= params[:user].capitalize %> !</strong></p>
+<% end %>
+
+<p>Retrouvez ici tous les potins de la communauté et partagez les votres avec les autres membres Gossip !</p>
+
+
+<a href="<%=new_gossip_path%>" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Créer un potin</a>
+
+<br/><br/>
+<% @gossips.each do |gossip| %>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= gossip.title %></h5>
+    <h6 class="card-subtitle mb-2 text-muted">Créé le <%= gossip.created_at.to_time.strftime("%m/%d/%Y") %></h6>
+    <p class="card-text"><%= gossip.content %></p>
+    <a href="<%= gossip_path(gossip.id) %>" class="card-link">Lire plus</a>
+  </div>
+</div>
+<% end %>

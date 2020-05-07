@@ -1,0 +1,8 @@
+<h1>Potin n°<%= @gossip.id %></h1>
+<br/>
+<p>
+    <strong><%= @gossip.title %></strong><br/>
+    <%= @gossip.content %><br/>
+    <br/>
+    Créé le <%= @gossip.created_at.to_time.strftime("%m/%d/%Y") %> par <a href="/users/<%= @gossip.user.id %>"> <%= @gossip.user.first_name %> <%= @gossip.user.last_name %></a>
+</p>
