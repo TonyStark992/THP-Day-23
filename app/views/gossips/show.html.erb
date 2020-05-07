@@ -4,5 +4,10 @@
     <strong><%= @gossip.title %></strong><br/>
     <%= @gossip.content %><br/>
     <br/>
-    Créé le <%= @gossip.created_at.to_time.strftime("%m/%d/%Y") %> par <a href="/users/<%= @gossip.user.id %>"> <%= @gossip.user.first_name %> <%= @gossip.user.last_name %></a>
+    Créé le <%= @gossip.created_at.to_time.strftime("%m/%d/%Y") %> par <a href="/users/<%= @gossip.user.id %>"> <%= @gossip.user.first_name %> <%= @gossip.user.last_name %></a> de <a href="<%= city_path(@gossip.user.city.id) %>"> <%= @gossip.user.city.name %> </a>
+</p>
+
+<p>
+    <a href="<%= edit_gossip_path(@gossip.id) %>" class="btn btn-primary">Editer le potin</a>
+    <a href="<%= gossip_path(@gossip.id) %>" class="btn btn-warning" data-confirm="Êtes-vous certain de vouloir supprimer le potin ?" data-method="delete">Supprimer</a>
 </p>
