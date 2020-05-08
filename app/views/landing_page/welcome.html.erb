@@ -17,6 +17,7 @@
       <small>Créé le <%= gossip.created_at.to_time.strftime("%m/%d/%Y") %></small>
     </div>
     <p class="mb-1"><%= gossip.content %></p>
+    <small><%= gossip.comments.count %> Commentaires</small>
   </a>
 </div>
 <% end %>
